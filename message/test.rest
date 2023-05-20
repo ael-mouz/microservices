@@ -1,0 +1,45 @@
+# POST /messages
+POST http://localhost:3333/messages
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+{
+  "sender": "aimen elm",
+  "recipient": "kamal mouad",
+  "content": "Hello, kamal! How are you?"
+}
+
+###
+# GET /messages
+GET http://localhost:3333/messages
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+###
+# GET /messages/:id
+GET http://localhost:3333/messages/6467a3041136362d43ccaa82
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+###
+# PUT /messages/:id
+PUT http://localhost:3333/messages/6467a3041136362d43ccaa82
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+{
+  "sender": "John Doe",
+  "recipient": "Jane Smith",
+  "content": "Hello, Jane! How are you? I just wanted to follow up."
+}
+
+###
+# PUT /messages/:id/viewed
+PUT http://localhost:3333/messages/6467a3041136362d43ccaa82/viewed
+Content-Type: application/json
+Authorization: Bearer <your_token>
+###
+# DELETE /messages/:id
+DELETE http://localhost:3333/messages/MESSAGE_ID
+Content-Type: application/json
+Authorization: Bearer <your_token>
