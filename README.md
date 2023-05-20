@@ -1,4 +1,4 @@
-# Project Name
+# Microservices
 
 This repository contains two microservices built with Node.js and Express: User Microservice and Message Microservice.
 
@@ -54,7 +54,7 @@ Make sure you have the following installed on your machine:
 1. Start the User Microservice:
 
     ```bash
-    cd user-microservice
+    cd user
     npm start
   	```
 The User Microservice will be running on http://localhost:3000.
@@ -62,7 +62,7 @@ The User Microservice will be running on http://localhost:3000.
 2. Start the Message Microservice:
 
   	```bash
-    cd message-microservice
+    cd message
     npm start
     ```
 The Message Microservice will be running on http://localhost:4000.
