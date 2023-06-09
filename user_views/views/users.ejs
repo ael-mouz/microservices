@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8" />
+  <title>Users</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .btn {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Users</h1>
+  <% if (typeof error !== 'undefined') { %>
+    <p class="text-danger"><%= error %></p>
+  <% } else { %>
+    <% if (users && users.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Change Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+            <tr>
+              <td><%= user.first_name %> <%= user.last_name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
+              <td>
+                <% if (user.role === 'user') { %>
+                  <form action="/change-role" method="POST">
+                    <input type="hidden" name="user_id" value="<%= user._id %>" />
+                    <input type="hidden" name="new_role" value="admin" />
+                    <button class="btn btn-primary" type="submit">Make Admin</button>
+                  </form>
+                <% } else { %>
+                  <form action="/change-role" method="POST">
+                    <input type="hidden" name="user_id" value="<%= user._id %>" />
+                    <input type="hidden" name="new_role" value="user" />
+                    <button class="btn btn-secondary" type="submit">Make User</button>
+                  </form>
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No users found.</p>
+    <% } %>
+  <% } %>
+  <a href="/profile" class="btn btn-link">Back to Profile</a>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+POST http://localhost:2222/register
+Content-Type: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "johndoe@example.com",
+  "password": "password123"
+}
+
+###
+POST http://localhost:2222/register
+Content-Type: application/json
+
+{
+  "first_name": "aimen",
+  "last_name": "elm",
+  "email": "aimenelm@example.com",
+  "password": "123456"
+}
+
+###
+POST http://localhost:2222/login
+Content-Type: application/json
+
+{
+  "email": "johndoe@example.com",
+  "password": "password123"
+}
+
+###
+POST http://localhost:2222/login
+Content-Type: application/json
+
+{
+  "email": "aimenelm@example.com",
+  "password": "123456"
+}
+
+###
+
+POST http://localhost:2222/logout
+
+###
+
+GET http://localhost:2222/users
+Authorization: Bearer <your_token>
+
+###
+
+post http://localhost:2222/welcome
+Authorization: Bearer <your_token>
+
+###
+
+PUT http://localhost:2222/change-role
+Content-Type: application/json
+Authorization: Bearer <your_token>
+
+{
+  "user_id": "646015123b0993286df2e851",
+  "new_role": "user"
+}

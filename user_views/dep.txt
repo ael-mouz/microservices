@@ -1,0 +1,12 @@
+npm install mongoose
+npm install express
+npm install jsonwebtoken
+npm install dotenv
+npm install bcryptjs
+npm install nodemon -D
+npm install bcrypt
+npm install winston
+npm install winston-daily-rotate-file
+npm install validator
+npm install body-parser
+npm install cookie-parser

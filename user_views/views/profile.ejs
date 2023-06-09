@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/css/bootstrap.min.css">
+  <!-- Add Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+  <!-- Add custom CSS for additional styling -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding-top: 100px;
+      text-align: center;
+    }
+    h1, h2, h3 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .user-list {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    .user-list li {
+      margin-bottom: 5px;
+    }
+    .btn-logout {
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background-color: #dc3545;
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-change-role {
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-primary text-light py-3">
+    <div class="container">
+      <h1>Profile</h1>
+    </div>
+  </header>
+  <div class="container mt-5">
+    <% if (user) { %>
+      <h2>Welcome, <%= user.first_name %> <%= user.last_name %></h2>
+      <p>Email: <%= user.email %></p>
+      <p>Role: <%= user.role %></p>
+      <% if (users) { %>
+        <h3>User List:</h3>
+        <ul class="user-list">
+          <% users.forEach(user => { %>
+            <li><%= user.first_name %> <%= user.last_name %> - <%= user.email %> - <%= user.role %></li>
+          <% }) %>
+        </ul>
+      <% } %>
+      <a href="/logout" class="btn btn-logout">Logout</a>
+      <a href="/users" class="btn btn-change-role">Change Role</a>
+    <% } else { %>
+      <p>User not found.</p>
+    <% } %>
+  </div>
+
+  <!-- Add Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
